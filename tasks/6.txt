@@ -1,0 +1,29 @@
+use std::io;
+
+macro_rules! parse_input {
+    ($x:expr, $t:ident) => ($x.trim().parse::<$t>().unwrap())
+}
+
+fn main() {
+    let mut input_line = String::new();
+    io::stdin().read_line(&mut input_line).unwrap();
+    let n = parse_input!(input_line, i32);
+    let mut ans = Vec::new();
+
+    for i in 0..n {
+        let mut input_line = String::new();
+        io::stdin().read_line(&mut input_line).unwrap();
+        let line = input_line.trim().to_string();
+        
+        let len = line.len();
+        let sum = line.chars().fold(0, |acc, c| acc + (c.to_digit(10).unwrap()).pow(len as u32));
+        if sum.to_string() == line {
+            ans.push("Yes");
+        } else {
+            ans.push("No");
+        }
+    }
+    for i in 0..n as usize {
+        println!("{}", ans[i]);
+    }
+}

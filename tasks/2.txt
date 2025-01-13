@@ -1,0 +1,18 @@
+use std::io;
+use rand::Rng;
+
+fn main() {
+   loop {
+        let mut rng = rand::thread_rng();
+        let mut input_line = String::new();
+        io::stdin().read_line(&mut input_line).unwrap();
+        let line = input_line.trim_matches('\n').to_string();
+
+        let val: Vec<&str> = line.split_whitespace().collect();
+        let a = val[0].parse::<i32>().unwrap();
+        let b = val[1].parse::<i32>().unwrap();
+        if a + b == 0 {break;}
+        
+        println!("{}", rng.gen_range(a..=b));
+   }
+}
