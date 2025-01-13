@@ -1,0 +1,34 @@
+use std::io;
+
+macro_rules! parse_input {
+    ($x:expr, $t:ident) => ($x.trim().parse::<$t>().unwrap())
+}
+
+fn main() {
+    let mut input_line = String::new();
+    io::stdin().read_line(&mut input_line).unwrap();
+    let n = parse_input!(input_line, i32);
+    let mut ans = Vec::new();
+
+    for i in 0..n {
+        
+        let mut input_line = String::new();
+        io::stdin().read_line(&mut input_line).unwrap();
+        let line = input_line.trim().to_string();
+        let val: Vec<&str> = line.split_whitespace().collect();
+        let a = val[0];
+        let b = val[1];
+
+        let len = a.len();
+        let mut sum = 0;
+        let mut ind = 0;
+        for c in a.chars() {
+            ind += 1;
+            sum += (c.to_digit(10).unwrap()) * (parse_input!(b, u32)).pow(len as u32 - ind);
+        }
+        ans.push(sum);
+    }
+    for i in 0..n as usize {
+        println!("{}", ans[i]);
+    }
+}

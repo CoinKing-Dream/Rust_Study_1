@@ -1,0 +1,8 @@
+info: syncing channel updates for 'stable-x86_64-pc-windows-msvc'
+info: latest update on 2025-01-09, rust version 1.84.0 (9fc6b4312 2025-01-07)
+info: downloading component 'rust-src'
+info: downloading component 'cargo'
+info: downloading component 'clippy'
+info: downloading component 'rust-docs'
+info: downloading component 'rust-std'
+info: downloading component 'rustc'
